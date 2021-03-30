@@ -1,0 +1,6 @@
+{
+  // 使用分号,默认 true
+  "semi": false,
+  //  使用单引号,默认为 false(在 jsx 中配置无效, 默认都是双引号)
+  "singleQuote": true
+}
