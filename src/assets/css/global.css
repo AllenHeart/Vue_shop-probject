@@ -8,3 +8,17 @@ html, body, #app{
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
+.el-breadcrumb {
+  /* 属性用于设置元素的底部外边距 */
+  margin-bottom: 15px;
+  /* 设置面包屑导航区字体大小 */
+  /* font-size: 12px; */
+}
+.el-card {
+  /* 属性用于在元素的框架上添加阴影效果 */
+  /* box-shadow: 0 1px 1px regba(0, 0, 0, 0.15) !important:;; */
+  /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2) !important; */
+}
+.el-table {
+  margin-top: 15px;
+}
