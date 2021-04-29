@@ -82,9 +82,9 @@
       <el-dialog
         title="添加用户信息"
         :visible.sync="addDialogVisible"
+        @close="addDialogClosed"
         width="30%"
-        center
-        @close="addDialogClosed">
+        center>
         <!-- 对话框的内容主体区 -->
         <el-form ref="addFromRef" :model="addFrom" :rules="addFromRules" label-width="80px">
           <el-form-item label="用户名" prop="username">
@@ -113,12 +113,12 @@
       <el-dialog
         title="修改用户"
         :visible.sync="editDialogVisible"
-        width="30%"
         @close="editDialogClosed"
+        width="30%"
         center>
         <el-form ref="editFormRef" :model="editFrom" :rules="editFromRules" label-width="80px">
           <el-form-item label="用户名">
-            <el-input v-model="editFrom.username" disabled="false"></el-input>
+            <el-input v-model="editFrom.username" disabled></el-input>
           </el-form-item>
           <el-form-item label="邮箱" prop="email">
             <el-input v-model="editFrom.email"></el-input>
