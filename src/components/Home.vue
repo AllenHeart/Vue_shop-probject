@@ -20,7 +20,8 @@
           active-text-color="#ffd04b"
           :collapse="isCollapse"
           :collapse-transition="false"
-          :router="true">
+          :router="true"
+          :default-active="activePath">
               <!-- 一级菜单 -->
                 <el-submenu :index="item.id + ''" v-for="item in menulist" :key="item.id">
                   <!-- 一级菜单的模版区域 -->
@@ -32,7 +33,10 @@
                   </template>
 
                   <!-- 二级菜单 -->
-                <el-menu-item :index="subItem.id + ''" v-for="subItem in item.children" :key="subItem.id">
+                <el-menu-item :index="'/' + subItem.path"
+                v-for="subItem in item.children"
+                :key="subItem.id"
+                @click="saveNavState('/' + subItem.path)">
                   <!--  二级菜单图标 -->
                   <template #title>
                     <!-- 一级菜单图标 icon -->
@@ -68,11 +72,14 @@ export default {
         '145': 'el-icon-s-marketing'
       },
       // 是否水平折叠收起菜单 默认为 false
-      isCollapse: false
+      isCollapse: false,
+      // 被激活的链接地址
+      activePath: ''
     }
   },
   created () {
     this.getMenuList()
+    this.activePath = window.sessionStorage.getItem('activePath')
   },
   methods: {
     logout () {
@@ -91,12 +98,18 @@ export default {
     //  点击按钮,切换菜单的折叠与展开
     toggleColapse () {
       this.isCollapse = !this.isCollapse
+    },
+    // 保存链接的激活状态
+    saveNavState (activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
+      // 给点击事件重新赋值
+      this.activePath = activePath
     }
   }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 /* 容器布局 */
 .home_container {
   height: 100%;
@@ -109,10 +122,11 @@ export default {
 /* 容器侧边栏区域 */
 .el-aside {
   background-color: #545c64;
-}
-/* 解决的侧边栏边框线对不齐的效果属性 */
-.el-menu {
-  border-radius: none;
+
+  // 解决的侧边栏边框线对不齐的效果属性
+  .el-menu {
+    border-right: none;
+  }
 }
 /* 容器头部区域 */
 .el-header {
@@ -123,10 +137,13 @@ export default {
   color: #fff;
   font: small-caps bold 24px/1 sans-serif;
   font-size: 20px;
-}
-.logo_container {
-  display: flex;
-  align-items: center;
+  > div {
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 15px;
+    }
+  }
 }
 .home_title {
   margin-left: 10px;
