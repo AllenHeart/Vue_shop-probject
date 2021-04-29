@@ -82,7 +82,7 @@ export default {
 </script>
 
 <!-- css 的样式/表现 -->
-<style>
+<style lang="less" scoped>
 .login_container {
   background: url() #99f repeat-y fixed;
   height: 100%;

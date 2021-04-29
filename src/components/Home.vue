@@ -109,7 +109,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 /* 容器布局 */
 .home_container {
   height: 100%;
@@ -122,10 +122,11 @@ export default {
 /* 容器侧边栏区域 */
 .el-aside {
   background-color: #545c64;
-}
-/* 解决的侧边栏边框线对不齐的效果属性 */
-.el-menu {
-  border-radius: none;
+
+  // 解决的侧边栏边框线对不齐的效果属性
+  .el-menu {
+    border-right: none;
+  }
 }
 /* 容器头部区域 */
 .el-header {
@@ -136,10 +137,13 @@ export default {
   color: #fff;
   font: small-caps bold 24px/1 sans-serif;
   font-size: 20px;
-}
-.logo_container {
-  display: flex;
-  align-items: center;
+  > div {
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 15px;
+    }
+  }
 }
 .home_title {
   margin-left: 10px;
