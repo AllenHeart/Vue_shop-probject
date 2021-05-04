@@ -73,7 +73,6 @@
       </el-pagination>
     </el-card>
 
-<<<<<<< HEAD
       <!-- 添加用户的对话框 -->
       <el-dialog
         title="添加用户信息"
@@ -130,7 +129,7 @@
           </span>
         </template>
       </el-dialog>
-=======
+
     <!-- 添加用户的对话框 -->
     <el-dialog title="添加用户信息" :visible.sync="addDialogVisible" width="30%" center @close="addDialogClosed">
       <!-- 对话框的内容主体区 -->
