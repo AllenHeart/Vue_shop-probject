@@ -205,7 +205,6 @@
         </span>
       </template>
     </el-dialog>
->>>>>>> rights
   </div>
 </template>
 
